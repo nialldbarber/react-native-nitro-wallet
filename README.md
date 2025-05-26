@@ -13,6 +13,15 @@
 ```bash
 npm install react-native-nitro-wallet react-native-nitro-modules
 ```
+```bash
+yarn add react-native-nitro-wallet react-native-nitro-modules
+```
+```bash
+bun add react-native-nitro-wallet react-native-nitro-modules
+```
+```bash
+pnpm add react-native-nitro-wallet react-native-nitro-modules
+```
 
 ## Credits
 
