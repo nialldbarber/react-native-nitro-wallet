@@ -10,21 +10,26 @@
 
 ## Installation
 
-#### npm
+##### npm
 ```bash
 npm install react-native-nitro-wallet react-native-nitro-modules
 ```
-#### yarn
+##### yarn
 ```bash
 yarn add react-native-nitro-wallet react-native-nitro-modules
 ```
-#### bun
+##### bun
 ```bash
 bun add react-native-nitro-wallet react-native-nitro-modules
 ```
-#### pnpm
+##### pnpm
 ```bash
 pnpm add react-native-nitro-wallet react-native-nitro-modules
+```
+
+##### Then
+```bash
+cd ios && pod install
 ```
 
 ## Credits
