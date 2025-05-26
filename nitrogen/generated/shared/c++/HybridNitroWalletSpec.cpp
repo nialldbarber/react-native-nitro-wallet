@@ -14,9 +14,11 @@ namespace margelo::nitro::nitrowallet {
     HybridObject::loadHybridMethods();
     // load custom methods/properties
     registerHybrids(this, [](Prototype& prototype) {
-      prototype.registerHybridMethod("sum", &HybridNitroWalletSpec::sum);
+      prototype.registerHybridMethod("canAddPassesToAppleWallet", &HybridNitroWalletSpec::canAddPassesToAppleWallet);
       prototype.registerHybridMethod("addPassToAppleWallet", &HybridNitroWalletSpec::addPassToAppleWallet);
       prototype.registerHybridMethod("viewPassInAppleWallet", &HybridNitroWalletSpec::viewPassInAppleWallet);
+      prototype.registerHybridMethod("doesPassExistInAppleWallet", &HybridNitroWalletSpec::doesPassExistInAppleWallet);
+      prototype.registerHybridMethod("removePassFromAppleWallet", &HybridNitroWalletSpec::removePassFromAppleWallet);
     });
   }
 

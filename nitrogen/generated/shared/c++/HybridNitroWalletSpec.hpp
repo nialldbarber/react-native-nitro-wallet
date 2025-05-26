@@ -50,9 +50,11 @@ namespace margelo::nitro::nitrowallet {
 
     public:
       // Methods
-      virtual double sum(double num1, double num2) = 0;
+      virtual std::shared_ptr<Promise<bool>> canAddPassesToAppleWallet() = 0;
       virtual std::shared_ptr<Promise<bool>> addPassToAppleWallet(const std::string& base64String) = 0;
       virtual std::shared_ptr<Promise<void>> viewPassInAppleWallet(const std::string& cardIdentifier, const std::optional<std::string>& serialNumber) = 0;
+      virtual std::shared_ptr<Promise<bool>> doesPassExistInAppleWallet(const std::string& cardIdentifier, const std::optional<std::string>& serialNumber) = 0;
+      virtual std::shared_ptr<Promise<void>> removePassFromAppleWallet(const std::string& cardIdentifier, const std::optional<std::string>& serialNumber) = 0;
 
     protected:
       // Hybrid Setup

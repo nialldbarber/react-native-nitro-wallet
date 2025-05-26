@@ -57,8 +57,8 @@ namespace margelo::nitro::nitrowallet {
 
   public:
     // Methods
-    inline double sum(double num1, double num2) override {
-      auto __result = _swiftPart.sum(std::forward<decltype(num1)>(num1), std::forward<decltype(num2)>(num2));
+    inline std::shared_ptr<Promise<bool>> canAddPassesToAppleWallet() override {
+      auto __result = _swiftPart.canAddPassesToAppleWallet();
       if (__result.hasError()) [[unlikely]] {
         std::rethrow_exception(__result.error());
       }
@@ -75,6 +75,22 @@ namespace margelo::nitro::nitrowallet {
     }
     inline std::shared_ptr<Promise<void>> viewPassInAppleWallet(const std::string& cardIdentifier, const std::optional<std::string>& serialNumber) override {
       auto __result = _swiftPart.viewPassInAppleWallet(cardIdentifier, serialNumber);
+      if (__result.hasError()) [[unlikely]] {
+        std::rethrow_exception(__result.error());
+      }
+      auto __value = std::move(__result.value());
+      return __value;
+    }
+    inline std::shared_ptr<Promise<bool>> doesPassExistInAppleWallet(const std::string& cardIdentifier, const std::optional<std::string>& serialNumber) override {
+      auto __result = _swiftPart.doesPassExistInAppleWallet(cardIdentifier, serialNumber);
+      if (__result.hasError()) [[unlikely]] {
+        std::rethrow_exception(__result.error());
+      }
+      auto __value = std::move(__result.value());
+      return __value;
+    }
+    inline std::shared_ptr<Promise<void>> removePassFromAppleWallet(const std::string& cardIdentifier, const std::optional<std::string>& serialNumber) override {
+      auto __result = _swiftPart.removePassFromAppleWallet(cardIdentifier, serialNumber);
       if (__result.hasError()) [[unlikely]] {
         std::rethrow_exception(__result.error());
       }

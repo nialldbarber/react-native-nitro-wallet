@@ -14,9 +14,11 @@ public protocol HybridNitroWalletSpec_protocol: HybridObject {
   
 
   // Methods
-  func sum(num1: Double, num2: Double) throws -> Double
+  func canAddPassesToAppleWallet() throws -> Promise<Bool>
   func addPassToAppleWallet(base64String: String) throws -> Promise<Bool>
   func viewPassInAppleWallet(cardIdentifier: String, serialNumber: String?) throws -> Promise<Void>
+  func doesPassExistInAppleWallet(cardIdentifier: String, serialNumber: String?) throws -> Promise<Bool>
+  func removePassFromAppleWallet(cardIdentifier: String, serialNumber: String?) throws -> Promise<Void>
 }
 
 /// See ``HybridNitroWalletSpec``

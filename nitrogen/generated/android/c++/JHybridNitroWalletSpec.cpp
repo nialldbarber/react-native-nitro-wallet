@@ -35,10 +35,21 @@ namespace margelo::nitro::nitrowallet {
   
 
   // Methods
-  double JHybridNitroWalletSpec::sum(double num1, double num2) {
-    static const auto method = javaClassStatic()->getMethod<double(double /* num1 */, double /* num2 */)>("sum");
-    auto __result = method(_javaPart, num1, num2);
-    return __result;
+  std::shared_ptr<Promise<bool>> JHybridNitroWalletSpec::canAddPassesToAppleWallet() {
+    static const auto method = javaClassStatic()->getMethod<jni::local_ref<JPromise::javaobject>()>("canAddPassesToAppleWallet");
+    auto __result = method(_javaPart);
+    return [&]() {
+      auto __promise = Promise<bool>::create();
+      __result->cthis()->addOnResolvedListener([=](const jni::alias_ref<jni::JObject>& __boxedResult) {
+        auto __result = jni::static_ref_cast<jni::JBoolean>(__boxedResult);
+        __promise->resolve(static_cast<bool>(__result->value()));
+      });
+      __result->cthis()->addOnRejectedListener([=](const jni::alias_ref<jni::JThrowable>& __throwable) {
+        jni::JniException __jniError(__throwable);
+        __promise->reject(std::make_exception_ptr(__jniError));
+      });
+      return __promise;
+    }();
   }
   std::shared_ptr<Promise<bool>> JHybridNitroWalletSpec::addPassToAppleWallet(const std::string& base64String) {
     static const auto method = javaClassStatic()->getMethod<jni::local_ref<JPromise::javaobject>(jni::alias_ref<jni::JString> /* base64String */)>("addPassToAppleWallet");
@@ -58,6 +69,37 @@ namespace margelo::nitro::nitrowallet {
   }
   std::shared_ptr<Promise<void>> JHybridNitroWalletSpec::viewPassInAppleWallet(const std::string& cardIdentifier, const std::optional<std::string>& serialNumber) {
     static const auto method = javaClassStatic()->getMethod<jni::local_ref<JPromise::javaobject>(jni::alias_ref<jni::JString> /* cardIdentifier */, jni::alias_ref<jni::JString> /* serialNumber */)>("viewPassInAppleWallet");
+    auto __result = method(_javaPart, jni::make_jstring(cardIdentifier), serialNumber.has_value() ? jni::make_jstring(serialNumber.value()) : nullptr);
+    return [&]() {
+      auto __promise = Promise<void>::create();
+      __result->cthis()->addOnResolvedListener([=](const jni::alias_ref<jni::JObject>& /* unit */) {
+        __promise->resolve();
+      });
+      __result->cthis()->addOnRejectedListener([=](const jni::alias_ref<jni::JThrowable>& __throwable) {
+        jni::JniException __jniError(__throwable);
+        __promise->reject(std::make_exception_ptr(__jniError));
+      });
+      return __promise;
+    }();
+  }
+  std::shared_ptr<Promise<bool>> JHybridNitroWalletSpec::doesPassExistInAppleWallet(const std::string& cardIdentifier, const std::optional<std::string>& serialNumber) {
+    static const auto method = javaClassStatic()->getMethod<jni::local_ref<JPromise::javaobject>(jni::alias_ref<jni::JString> /* cardIdentifier */, jni::alias_ref<jni::JString> /* serialNumber */)>("doesPassExistInAppleWallet");
+    auto __result = method(_javaPart, jni::make_jstring(cardIdentifier), serialNumber.has_value() ? jni::make_jstring(serialNumber.value()) : nullptr);
+    return [&]() {
+      auto __promise = Promise<bool>::create();
+      __result->cthis()->addOnResolvedListener([=](const jni::alias_ref<jni::JObject>& __boxedResult) {
+        auto __result = jni::static_ref_cast<jni::JBoolean>(__boxedResult);
+        __promise->resolve(static_cast<bool>(__result->value()));
+      });
+      __result->cthis()->addOnRejectedListener([=](const jni::alias_ref<jni::JThrowable>& __throwable) {
+        jni::JniException __jniError(__throwable);
+        __promise->reject(std::make_exception_ptr(__jniError));
+      });
+      return __promise;
+    }();
+  }
+  std::shared_ptr<Promise<void>> JHybridNitroWalletSpec::removePassFromAppleWallet(const std::string& cardIdentifier, const std::optional<std::string>& serialNumber) {
+    static const auto method = javaClassStatic()->getMethod<jni::local_ref<JPromise::javaobject>(jni::alias_ref<jni::JString> /* cardIdentifier */, jni::alias_ref<jni::JString> /* serialNumber */)>("removePassFromAppleWallet");
     auto __result = method(_javaPart, jni::make_jstring(cardIdentifier), serialNumber.has_value() ? jni::make_jstring(serialNumber.value()) : nullptr);
     return [&]() {
       auto __promise = Promise<void>::create();

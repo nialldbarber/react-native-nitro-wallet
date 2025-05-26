@@ -42,7 +42,7 @@ abstract class HybridNitroWalletSpec: HybridObject() {
   // Methods
   @DoNotStrip
   @Keep
-  abstract fun sum(num1: Double, num2: Double): Double
+  abstract fun canAddPassesToAppleWallet(): Promise<Boolean>
   
   @DoNotStrip
   @Keep
@@ -51,6 +51,14 @@ abstract class HybridNitroWalletSpec: HybridObject() {
   @DoNotStrip
   @Keep
   abstract fun viewPassInAppleWallet(cardIdentifier: String, serialNumber: String?): Promise<Unit>
+  
+  @DoNotStrip
+  @Keep
+  abstract fun doesPassExistInAppleWallet(cardIdentifier: String, serialNumber: String?): Promise<Boolean>
+  
+  @DoNotStrip
+  @Keep
+  abstract fun removePassFromAppleWallet(cardIdentifier: String, serialNumber: String?): Promise<Unit>
 
   private external fun initHybrid(): HybridData
 
