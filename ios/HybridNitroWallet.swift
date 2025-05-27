@@ -5,7 +5,7 @@ import NitroModules
 class HybridNitroWallet: HybridNitroWalletSpec {    
     func canAddPassesToAppleWallet() throws -> Promise<Bool> {
         return Promise.async {
-            return PKAddPassesViewController.canAddPasses()
+            return await PKAddPassesViewController.canAddPasses()
         }
     }
 
@@ -39,6 +39,30 @@ class HybridNitroWallet: HybridNitroWalletSpec {
             return true
         }
     }
+
+    // func addMultiplePassesToAppleWallet(base64Passes: [String]) throws -> Promise<Bool> {
+    //     return Promise.async {
+    //         let passes: [PKPass] = try base64Passes.map { base64String in
+    //             guard let data = Data(base64Encoded: base64String) else {
+    //                 throw NSError(domain: "HybridNitroWallet", code: 1, userInfo: [NSLocalizedDescriptionKey: "Failed to decode base64 string"])
+    //             }
+    //             return try PKPass(data: data)
+    //         }
+    //         let passLibrary = PKPassLibrary()
+    //         return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Bool, Error>) in
+    //             DispatchQueue.main.async {
+    //                 passLibrary.addPasses(passes, withCompletionHandler: { (status: PKPassLibraryAddPassesStatus) -> Void in
+    //                     if status == .success {
+    //                         continuation.resume(returning: true)
+    //                     } else {
+    //                         continuation.resume(returning: false)
+    //                     }
+    //                     return
+    //                 })
+    //             }
+    //         }
+    //     }
+    // }
 
     private func checkPassByIdentifier(pass: PKPass, identifier: String, serialNumber: String?) -> Bool {
         if pass.passTypeIdentifier != identifier {
