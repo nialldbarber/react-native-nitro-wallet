@@ -18,15 +18,15 @@ cd ios && pod install
 > [!IMPORTANT]
 > It is recommended to first read [Getting Started with Apple Wallet](https://developer.apple.com/wallet/get-started/) to get familiar with the concepts of creating, distributing and updating passes for Apple Wallet 
 
-> _This library assumes you have already a generated pass_, which is generally served to the app via the backend. [passkit-generator](https://www.npmjs.com/package/passkit-generator) is a solid resource for this. 
+> _This library assumes you have already a generated pass_, which is generally served to the app via a backend. [passkit-generator](https://www.npmjs.com/package/passkit-generator) is a solid resource for this. 
 
 ## ⚙️ Set up 
 ### iOS
 - Follow the [documentation](https://developer.apple.com/help/account/capabilities/create-wallet-identifiers-and-certificates/) on creating a Pass Type ID certificate 
-- Open your project in xcode (`open ${YourProjectName}.xcworkspace`)
+- Open your project in xcode - `open ${YourProjectName}.xcworkspace`
 - Go to __Target__ > __Signing & Capabilities__ and click __+ Capability__
-- With the open modal, filter by __Wallet__ and click to add 
-- You will now have a new Entitlements file: `${YourProjectName}/ios/${YourProject}/${YourProject}.entitlements`. Which will add the following to it: 
+- Then filter by "__Wallet__" and click to add 
+- This will generate a new Entitlements file: `${YourProjectName}/ios/${YourProject}/${YourProject}.entitlements`. Which will add the following to it: 
 ```
 <key>com.apple.developer.pass-type-identifiers</key>
 <array>
@@ -34,7 +34,7 @@ cd ios && pod install
 </array>
 ```
 - If you already have an entitlements file, then you don't need to follow the above, you can simply add the above code block to that file. 
-- Using the wildcard `<string>$(TeamIdentifierPrefix)*</string>`, is auto-generated, but is a bit flaky on newer React Native versions. If you find this library is not working (adding, viewing, deleting passes etc), then try removing the wildcard and explicitly putting in your Pass Type ID like so: `<string>$(TeamIdentifierPrefix)pass.your.pass.type.id</string>`
+- The wildcard (`<string>$(TeamIdentifierPrefix)*</string>`), is auto-generated when adding Wallet capabilities via xcode, but it can be flaky on newer versions of React Native. If you find this library is not working (adding, viewing, deleting passes etc), then try removing the wildcard and explicitly putting in your Pass Type ID like so: `<string>$(TeamIdentifierPrefix)pass.your.pass.type.id</string>`
 - Once this is done, re-run: 
 
 ```bash
@@ -54,15 +54,17 @@ Checks if the current device can add passes to Apple Wallet (e.g. Wallet app ins
 ```ts
 try {
   const canAddPass = await Wallet.canAddPassesToAppleWallet();
-  return canAddPass // true / false
+  return canAddPass // true or false
 } catch (error) {
   console.error("Can't add pass");
 }
 ```
 
 #### `addPassToAppleWallet(base64String: string): Promise<boolean>`
-- Adds a single pass to Apple Wallet
+> [!IMPORTANT]
+The parameter passed to `addPassToAppleWallet` _must_ be base 64 encoded! 
 
+- Adds a single pass to Apple Wallet
 - `base64String`: A base64-encoded `.pkpass` file
 
 ```ts
@@ -94,8 +96,7 @@ Checks if a pass matching the provided identifiers exists in the user’s Wallet
 ```ts
 try {
   const exists = await Wallet.doesPassExistInAppleWallet('pass.com.example.myapp', '1234567890');
-
-  return exists // true / false
+  return exists // true or false
 } catch (error) {
   console.error("Failed to check if pass exists in wallet");
 }
