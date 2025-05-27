@@ -1,6 +1,8 @@
 # react-native-nitro-wallet
 
-A React Native Wallet integration library built with [Nitro Modules](https://github.com/mrousavy/nitro). You can add a pass, detect the existence of a pass and remove a pass. Bulk add passes is coming soon 🚧. Currently Apple Wallet (iOS) only, but support for Google Wallet (Android) coming soon 👀 
+⚠️ This package is under development, please report any issues! 
+
+A React Native Wallet integration package built with [Nitro Modules](https://github.com/mrousavy/nitro). You can add a pass, detect the existence of a pass and remove a pass. Bulk add passes is coming soon 🚧. Currently Apple Wallet (iOS) only, but support for Google Wallet (Android) coming soon 👀 
 
 ## ⚠️ Requirements
 
@@ -18,7 +20,7 @@ cd ios && pod install
 > [!IMPORTANT]
 > It is recommended to first read [Getting Started with Apple Wallet](https://developer.apple.com/wallet/get-started/) to get familiar with the concepts of creating, distributing and updating passes for Apple Wallet 
 
-> _This library assumes you have already a generated pass_, which is generally served to the app via a backend. [passkit-generator](https://www.npmjs.com/package/passkit-generator) is a solid resource for this. 
+> _This package assumes you have already a generated pass_, which is generally served to the app via a backend. [passkit-generator](https://www.npmjs.com/package/passkit-generator) is a solid resource for this. 
 
 ## ⚙️ Set up 
 ### iOS
@@ -34,7 +36,7 @@ cd ios && pod install
 </array>
 ```
 - If you already have an entitlements file, then you don't need to follow the above, you can simply add the above code block to that file. 
-- The wildcard (`<string>$(TeamIdentifierPrefix)*</string>`), is auto-generated when adding Wallet capabilities via xcode, but it can be flaky on newer versions of React Native. If you find this library is not working (adding, viewing, deleting passes etc), then try removing the wildcard and explicitly putting in your Pass Type ID like so: `<string>$(TeamIdentifierPrefix)pass.your.pass.type.id</string>`
+- The wildcard (`<string>$(TeamIdentifierPrefix)*</string>`), is auto-generated when adding Wallet capabilities via xcode, but it can be flaky on newer versions of React Native. If you find this package is not working (adding, viewing, deleting passes etc), then try removing the wildcard and explicitly putting in your Pass Type ID like so: `<string>$(TeamIdentifierPrefix)pass.com.example.myapp</string>`
 - Once this is done, re-run: 
 
 ```bash
@@ -79,7 +81,7 @@ try {
 Opens an existing pass in Apple Wallet
 - Use this if you want to let the user view the pass from inside your app
 - `cardIdentifier`: Your registered Pass Type ID
-- `serialNumber`: Optional — use if your system issues multiple passes under one ID
+- `serialNumber`: Optional - use if your system issues multiple passes under one ID
 
 
 ```ts
