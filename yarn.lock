@@ -10,6 +10,18 @@
     "@jridgewell/gen-mapping" "^0.3.5"
     "@jridgewell/trace-mapping" "^0.3.24"
 
+"@ark/schema@0.46.0":
+  version "0.46.0"
+  resolved "https://registry.yarnpkg.com/@ark/schema/-/schema-0.46.0.tgz#81a1a0dc1ff0f2faa098cba05de505a174bdc64e"
+  integrity sha512-c2UQdKgP2eqqDArfBqQIJppxJHvNNXuQPeuSPlDML4rjw+f1cu0qAlzOG4b8ujgm9ctIDWwhpyw6gjG5ledIVQ==
+  dependencies:
+    "@ark/util" "0.46.0"
+
+"@ark/util@0.46.0":
+  version "0.46.0"
+  resolved "https://registry.yarnpkg.com/@ark/util/-/util-0.46.0.tgz#aee240bdaf413793e5ca4c4e8e3707aa965f4be3"
+  integrity sha512-JPy/NGWn/lvf1WmGCPw2VGpBg5utZraE84I7wli18EDF3p3zc/e9WolT35tINeZO3l7C77SjqRJeAUoT0CvMRg==
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.12.13", "@babel/code-frame@^7.24.7", "@babel/code-frame@^7.26.2", "@babel/code-frame@^7.27.1":
   version "7.27.1"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.27.1.tgz#200f715e66d52a23b221a9435534a91cc13ad5be"
@@ -550,7 +562,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.27.1"
 
-"@babel/plugin-transform-flow-strip-types@^7.25.2", "@babel/plugin-transform-flow-strip-types@^7.27.1":
+"@babel/plugin-transform-flow-strip-types@^7.25.2", "@babel/plugin-transform-flow-strip-types@^7.26.5":
   version "7.27.1"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-flow-strip-types/-/plugin-transform-flow-strip-types-7.27.1.tgz#5def3e1e7730f008d683144fb79b724f92c5cdf9"
   integrity sha512-G5eDKsu50udECw7DL2AcsysXiQyB7Nfg521t2OAJ4tbfTJ27doHLeF/vlI1NZGlLdbb/v+ibvtL1YBQqYOwJGg==
@@ -970,15 +982,6 @@
     babel-plugin-polyfill-regenerator "^0.6.1"
     core-js-compat "^3.40.0"
     semver "^6.3.1"
-
-"@babel/preset-flow@^7.24.7":
-  version "7.27.1"
-  resolved "https://registry.yarnpkg.com/@babel/preset-flow/-/preset-flow-7.27.1.tgz#3050ed7c619e8c4bfd0e0eeee87a2fa86a4bb1c6"
-  integrity sha512-ez3a2it5Fn6P54W8QkbfIyyIbxlXvcxyWHHvno1Wg0Ej5eiJY5hBb8ExttoIOJJk7V2dZE6prP7iby5q2aQ0Lg==
-  dependencies:
-    "@babel/helper-plugin-utils" "^7.27.1"
-    "@babel/helper-validator-option" "^7.27.1"
-    "@babel/plugin-transform-flow-strip-types" "^7.27.1"
 
 "@babel/preset-modules@0.1.6-no-external-plugins":
   version "0.1.6-no-external-plugins"
@@ -2370,6 +2373,14 @@ argparse@^2.0.1:
   resolved "https://registry.yarnpkg.com/argparse/-/argparse-2.0.1.tgz#246f50f3ca78a3240f6c997e8a9bd1eac49e4b38"
   integrity sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==
 
+arktype@^2.1.15:
+  version "2.1.20"
+  resolved "https://registry.yarnpkg.com/arktype/-/arktype-2.1.20.tgz#dd46726b0faf23c2753369876c77bb037e7089d9"
+  integrity sha512-IZCEEXaJ8g+Ijd59WtSYwtjnqXiwM8sWQ5EjGamcto7+HVN9eK0C4p0zDlCuAwWhpqr6fIBkxPuYDl4/Mcj/+Q==
+  dependencies:
+    "@ark/schema" "0.46.0"
+    "@ark/util" "0.46.0"
+
 array-buffer-byte-length@^1.0.1, array-buffer-byte-length@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/array-buffer-byte-length/-/array-buffer-byte-length-1.0.2.tgz#384d12a37295aec3769ab022ad323a18a51ccf8b"
@@ -2572,6 +2583,13 @@ babel-plugin-syntax-hermes-parser@0.25.1:
   integrity sha512-IVNpGzboFLfXZUAwkLFcI/bnqVbwky0jP3eBno4HKtqvQJAHBLdgxiG6lQ4to0+Q/YCN3PO0od5NZwIKyY4REQ==
   dependencies:
     hermes-parser "0.25.1"
+
+babel-plugin-syntax-hermes-parser@^0.28.0:
+  version "0.28.1"
+  resolved "https://registry.yarnpkg.com/babel-plugin-syntax-hermes-parser/-/babel-plugin-syntax-hermes-parser-0.28.1.tgz#9e80a774ddb8038307a62316486669c668fb3568"
+  integrity sha512-meT17DOuUElMNsL5LZN56d+KBp22hb0EfxWfuPUeoSi54e40v1W4C2V36P75FpsH9fVEfDKpw5Nnkahc8haSsQ==
+  dependencies:
+    hermes-parser "0.28.1"
 
 babel-plugin-transform-flow-enums@^0.0.2:
   version "0.0.2"
@@ -3734,6 +3752,11 @@ escape-string-regexp@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
   integrity sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
+
+escape-string-regexp@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-5.0.0.tgz#4683126b500b61762f2dbebace1806e8be31b1c8"
+  integrity sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==
 
 escodegen@^2.1.0:
   version "2.1.0"
@@ -6624,20 +6647,20 @@ react-is@^18.0.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.3.1.tgz#e83557dc12eae63a99e003a46388b1dcbb44db7e"
   integrity sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==
 
-react-native-builder-bob@^0.37.0:
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/react-native-builder-bob/-/react-native-builder-bob-0.37.0.tgz#2f7e4fbd188cda81e9ae124e8483cc412ba851a8"
-  integrity sha512-CkM4csFrYtdGJoRLbPY6V8LBbOxgPZIuM0MkPaiOI2F/ASwxMAzoJu9wBw8Pyvx1p27XnrIEKPyDiTqimJ7xbA==
+react-native-builder-bob@^0.40.11:
+  version "0.40.11"
+  resolved "https://registry.yarnpkg.com/react-native-builder-bob/-/react-native-builder-bob-0.40.11.tgz#29f3d6c169e29cfbea0333e27e49c7f73f21759c"
+  integrity sha512-LKh8xbjvh6JLxpRAiTSXqWAC27LJrSOMaXsN8aPwNc4HmXFnMUsl54OSL+d38ZZtBkFh8O2x1Z4Vno20rLy3Lw==
   dependencies:
     "@babel/core" "^7.25.2"
+    "@babel/plugin-transform-flow-strip-types" "^7.26.5"
     "@babel/plugin-transform-strict-mode" "^7.24.7"
     "@babel/preset-env" "^7.25.2"
-    "@babel/preset-flow" "^7.24.7"
     "@babel/preset-react" "^7.24.7"
     "@babel/preset-typescript" "^7.24.7"
-    babel-plugin-module-resolver "^5.0.2"
+    arktype "^2.1.15"
+    babel-plugin-syntax-hermes-parser "^0.28.0"
     browserslist "^4.20.4"
-    cosmiconfig "^9.0.0"
     cross-spawn "^7.0.3"
     dedent "^0.7.0"
     del "^6.1.1"
@@ -6649,8 +6672,17 @@ react-native-builder-bob@^0.37.0:
     kleur "^4.1.4"
     metro-config "^0.80.9"
     prompts "^2.4.2"
+    react-native-monorepo-config "^0.1.8"
     which "^2.0.2"
     yargs "^17.5.1"
+
+react-native-monorepo-config@^0.1.8:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/react-native-monorepo-config/-/react-native-monorepo-config-0.1.9.tgz#1caacc259a2b4ccf5162c14c6f5f457ae9adec40"
+  integrity sha512-GLFYMEEcbltxZw7oUbbh/p0oXqA52lSirXt7o/N1qD6CFTvku84OVL6teeQ1Ef92pq+bepq4x0Qz+d6lapVbuQ==
+  dependencies:
+    escape-string-regexp "^5.0.0"
+    fast-glob "^3.3.3"
 
 react-native-nitro-modules@0.25.2, react-native-nitro-modules@^0.25.2:
   version "0.25.2"
