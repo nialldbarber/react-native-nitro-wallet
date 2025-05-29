@@ -23,8 +23,8 @@ function App(): React.JSX.Element {
 	const handleViewPassInWallet = async () => {
 		try {
 			const result = await Wallet.viewPassInAppleWallet(
-				"pass.membership.uk.co.o-net.ractravel",
-				"testMembershipNumber",
+				"pass.com.nialldbarber.wallet.nitro",
+				"123456789",
 			);
 			setIsPassInWallet(true);
 			console.log("its in the wallet!", result);
@@ -37,8 +37,8 @@ function App(): React.JSX.Element {
 	const handleDoesPassExistInWallet = async () => {
 		try {
 			const result = await Wallet.doesPassExistInAppleWallet(
-				"pass.membership.uk.co.o-net.ractravel",
-				"testMembershipNumber",
+				"pass.com.nialldbarber.wallet.nitro",
+				"123456789",
 			);
 			setIsPassInWallet(result);
 		} catch (error) {
@@ -50,8 +50,8 @@ function App(): React.JSX.Element {
 	const handleRemovePassFromWallet = async () => {
 		try {
 			const result = await Wallet.removePassFromAppleWallet(
-				"pass.membership.uk.co.o-net.ractravel",
-				"testMembershipNumber",
+				"pass.com.nialldbarber.wallet.nitro",
+				"123456789",
 			);
 			console.log("removed pass from wallet", result);
 		} catch (error) {
