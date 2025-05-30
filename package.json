@@ -51,7 +51,8 @@
 	"homepage": "https://github.com/niallbarber/react-native-nitro-wallet#readme",
 	"publishConfig": {
 		"registry": "https://registry.npmjs.org/",
-		"provenance": true
+		"provenance": true,
+		"access": "public"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
@@ -91,8 +92,7 @@
 	},
 	"release-it": {
 		"npm": {
-			"publish": true,
-			"access": "public"
+			"publish": true
 		},
 		"git": {
 			"commitMessage": "chore: release ${version}",
