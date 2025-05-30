@@ -24,7 +24,7 @@ function App(): React.JSX.Element {
 		try {
 			const result = await Wallet.viewPassInAppleWallet(
 				"pass.com.nialldbarber.wallet.nitro",
-				"123456789",
+				"1234567890",
 			);
 			setIsPassInWallet(true);
 			console.log("its in the wallet!", result);
@@ -38,7 +38,7 @@ function App(): React.JSX.Element {
 		try {
 			const result = await Wallet.doesPassExistInAppleWallet(
 				"pass.com.nialldbarber.wallet.nitro",
-				"123456789",
+				"1234567890",
 			);
 			setIsPassInWallet(result);
 		} catch (error) {
@@ -51,7 +51,7 @@ function App(): React.JSX.Element {
 		try {
 			const result = await Wallet.removePassFromAppleWallet(
 				"pass.com.nialldbarber.wallet.nitro",
-				"123456789",
+				"1234567890",
 			);
 			console.log("removed pass from wallet", result);
 		} catch (error) {
