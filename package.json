@@ -1,6 +1,6 @@
 {
 	"name": "react-native-nitro-wallet",
-	"version": "0.1.5",
+	"version": "0.1.6",
 	"description": "A React Native package for interacting with Apple or Google Wallet",
 	"main": "./lib/commonjs/index.js",
 	"module": "./lib/module/index.js",
