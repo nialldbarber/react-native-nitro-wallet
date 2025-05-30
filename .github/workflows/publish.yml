@@ -1,20 +1,13 @@
-name: Publish to npm
-
-on:
-  push:
-    tags:
-      - 'v*'
-
-permissions:
-  contents: write
-  id-token: write
-
 jobs:
   publish:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout full repo with tag ref
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref }}
 
       - uses: oven-sh/setup-bun@v2
 
