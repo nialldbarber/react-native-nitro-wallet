@@ -1,8 +1,8 @@
 {
 	"name": "react-native-nitro-wallet",
 	"private": true,
-	"version": "0.1.0",
-	"description": "Nitro module package",
+	"version": "0.1.1",
+	"description": "A React Native package for interacting with Apple or Google Wallet",
 	"main": "./lib/commonjs/index.js",
 	"module": "./lib/module/index.js",
 	"types": "./lib/typescript/src/index.d.ts",
@@ -15,7 +15,15 @@
 		"build": "npm run typecheck && bob build",
 		"codegen": "nitro-codegen --logLevel=\"debug\" && npm run build && node post-script.js"
 	},
-	"keywords": ["react-native"],
+	"keywords": [
+		"react-native",
+		"apple-wallet",
+		"google-wallet",
+		"nitro-modules",
+		"nitro-wallet",
+		"passkit",
+		"pass"
+	],
 	"files": [
 		"src",
 		"react-native.config.js",
