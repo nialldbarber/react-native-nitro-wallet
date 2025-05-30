@@ -43,9 +43,7 @@
 		"*.podspec",
 		"README.md"
 	],
-	"workspaces": [
-		"example"
-	],
+	"workspaces": ["example"],
 	"repository": "https://github.com/niallbarber/react-native-nitro-wallet.git",
 	"author": "Niall Barber",
 	"license": "MIT",
@@ -93,7 +91,8 @@
 	},
 	"release-it": {
 		"npm": {
-			"publish": true
+			"publish": true,
+			"access": "public"
 		},
 		"git": {
 			"commitMessage": "chore: release ${version}",
