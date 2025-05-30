@@ -20,6 +20,12 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.ref }}
 
+      - name: Resolve tag to branch (repoint HEAD)
+        run: |
+          BRANCH=$(git branch -r --contains ${{ github.sha }} | grep -v '\->' | head -n 1 | sed 's/origin\///')
+          echo "Found branch: $BRANCH"
+          git checkout $BRANCH
+
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
 
