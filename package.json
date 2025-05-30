@@ -1,6 +1,6 @@
 {
 	"name": "react-native-nitro-wallet",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"description": "A React Native package for interacting with Apple or Google Wallet",
 	"main": "./lib/commonjs/index.js",
 	"module": "./lib/module/index.js",
@@ -43,7 +43,9 @@
 		"*.podspec",
 		"README.md"
 	],
-	"workspaces": ["example"],
+	"workspaces": [
+		"example"
+	],
 	"repository": "https://github.com/niallbarber/react-native-nitro-wallet.git",
 	"author": "Niall Barber",
 	"license": "MIT",
