@@ -1,5 +1,7 @@
 # react-native-nitro-wallet
 
+![Image](https://github.com/user-attachments/assets/fea349cb-26e8-45b5-8e20-61114fee647a)
+
 ⚠️ This package is under development, please report any issues! 
 
 A React Native Wallet integration package built with [Nitro Modules](https://github.com/mrousavy/nitro). You can add a pass, detect the existence of a pass and remove a pass. Bulk add passes is coming soon 🚧. Currently Apple Wallet (iOS) only, but support for Google Wallet (Android) coming soon 👀 
@@ -12,7 +14,6 @@ A React Native Wallet integration package built with [Nitro Modules](https://git
 ## 🔧 Installation
 ```bash
 yarn add react-native-nitro-wallet react-native-nitro-modules
-
 cd ios && pod install
 ```
 ---

@@ -5,7 +5,7 @@ import {Wallet} from "react-native-nitro-wallet";
 
 import {pkpass} from "./constants";
 
-function App(): React.JSX.Element {
+export default function App() {
 	const [isPassInWallet, setIsPassInWallet] = useState(true);
 
 	const [canAddPassesToAppleWallet, setCanAddPassesToAppleWallet] =
@@ -67,22 +67,24 @@ function App(): React.JSX.Element {
 	return (
 		<View style={styles.container}>
 			<Text style={styles.text}>
-				Can add passes to wallet? - {canAddPassesToAppleWallet ? "Yes!" : "No!"}
+				Can add passes to wallet? - {canAddPassesToAppleWallet ? "✅" : "❌"}
 			</Text>
 			<View style={styles.divider} />
-			<Pressable
-				style={styles.button}
-				onPress={() => Wallet.addPassToAppleWallet(pkpass)}
-			>
-				<Text style={styles.buttonText}>Add pass</Text>
-			</Pressable>
-			<View style={styles.divider} />
-			<Pressable style={styles.button} onPress={handleViewPassInWallet}>
-				<Text style={styles.buttonText}>View pass in wallet</Text>
-			</Pressable>
+			{isPassInWallet ? (
+				<Pressable style={styles.button} onPress={handleViewPassInWallet}>
+					<Text style={styles.buttonText}>View pass in wallet</Text>
+				</Pressable>
+			) : (
+				<Pressable
+					style={styles.button}
+					onPress={() => Wallet.addPassToAppleWallet(pkpass)}
+				>
+					<Text style={styles.buttonText}>Add pass</Text>
+				</Pressable>
+			)}
 			<View style={styles.divider} />
 			<Text style={styles.text}>
-				Pass in wallet? - {isPassInWallet ? "It is!" : "It isnt!"}
+				Pass in wallet? - {isPassInWallet ? "✅" : "❌"}
 			</Text>
 			<View style={styles.divider} />
 			<Pressable style={styles.button} onPress={handleRemovePassFromWallet}>
@@ -116,5 +118,3 @@ const styles = StyleSheet.create({
 		marginVertical: 10,
 	},
 });
-
-export default App;
