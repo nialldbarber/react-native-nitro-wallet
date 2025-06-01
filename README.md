@@ -1,6 +1,6 @@
 # react-native-nitro-wallet
 
-![Image](https://github.com/user-attachments/assets/fea349cb-26e8-45b5-8e20-61114fee647a)
+![React Native Nitro Wallet Logo](./assets/rnnw-img.png)
 
 ⚠️ This package is under development, please report any issues! 
 
